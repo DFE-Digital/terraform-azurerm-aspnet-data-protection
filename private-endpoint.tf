@@ -10,7 +10,7 @@ resource "azurerm_subnet" "key_vault" {
 }
 
 resource "azurerm_private_dns_zone" "keyvault_dns" {
-  name                = "${azurerm_key_vault.data_protection.name}.vault.azure.net"
+  name                = "${local.key_vault.name}.vault.azure.net"
   resource_group_name = local.resource_group_name
   tags                = local.tags
 }
@@ -28,13 +28,13 @@ resource "azurerm_private_dns_zone_virtual_network_link" "key_vault_private_link
   name                  = "${local.resource_prefix}-kv-private-link"
   resource_group_name   = local.resource_group_name
   private_dns_zone_name = azurerm_private_dns_zone.keyvault_dns.name
-  virtual_network_id    = module.azure_container_apps_hosting.networking.vnet_id
+  virtual_network_id    = data.azurerm_virtual_network.vnet.id
   tags                  = local.tags
 }
 
 resource "azurerm_private_endpoint" "key_vault" {
   name                = "${local.resource_prefix}dpkv"
-  location            = module.azure_container_apps_hosting.azurerm_resource_group_default.location
+  location            = local.azure_location
   resource_group_name = local.resource_group_name
   subnet_id           = azurerm_subnet.key_vault.id
 

@@ -13,7 +13,7 @@ variable "data_protection_container_identity_principal_id" {
 variable "data_protection_key_vault_assign_role" {
   description = "Assign the Key Vault Key role to an Identity?"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "data_protection_key_vault_subnet_prefix" {

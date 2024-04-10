@@ -10,11 +10,22 @@ This <module/project> creates and manages <REPLACE WITH MAIN RESOURCE NAMES/URLS
 Example module usage:
 
 ```hcl
-module "<MODULE NAME>" {
-  source  = "github.com/<ORG>/<MODULE NAME>?ref=v<VERSION>"
+module "data_protection" {
+  source = "github.com/DFE-Digital/terraform-azurerm-aspnet-data-protection"
 
-  environment = "dev/staging/test/pre-prod/prod/post-prod"
+  data_protection_azure_location          = local.azure_location
+  data_protection_resource_group_name     = "my-resource-group"
+  data_protection_resource_prefix         = "${local.environment}${local.project_name}"
+  data_protection_key_vault_assign_role   = false
+  data_protection_key_vault_subnet_prefix = "172.16.0.0/12"
+  data_protection_key_vault_access_ipv4   = [
+    "192.168.0.1/24"
+  ]
+  data_protection_tags                    = {
+    "Environment" = "Dev"
+  }
 }
+
 ```
 
 <!-- BEGIN_TF_DOCS -->

@@ -53,45 +53,11 @@ jobs:
             hashicorp/terraform:${{ steps.get-terraform-version.outputs.version }} \
             fmt -check=true -diff=true
 
-  terraform-docs-validation:
-    name: Terraform Docs validation
-    needs: terraform-validate
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          token: ${{ secrets.TERRAFORM_DOCS_RENOVATE_WORKFLOW_GITHUB_TOKEN }}
-
-      - name: Get PR base branch
-        id: pr-base-branch-name
-        if: github.event_name == 'pull_request'
-        run: |
-          echo "GITHUB_PR_BRANCH=${{ github.head_ref }}" >> $GITHUB_ENV
-
-      - name: Get commit message
-        run: |
-          echo "GIT_COMMIT_MESSAGE=$(git show -s --format=%s)" >> $GITHUB_ENV
-
       - name: Generate Terraform docs
         uses: terraform-docs/gh-actions@v1.1.0
-        if: "!startsWith(env.GITHUB_PR_BRANCH, 'renovate/')"
         with:
           working-dir: .
           config-file: .terraform-docs.yml
           output-file: README.md
           output-method: inject
           fail-on-diff: true
-
-      - name: Generate Terraform docs for Renovate
-        uses: terraform-docs/gh-actions@v1.1.0
-        if: "startsWith(env.GITHUB_PR_BRANCH, 'renovate/')"
-        with:
-          working-dir: .
-          config-file: .terraform-docs.yml
-          output-file: README.md
-          output-method: inject
-          git-push: true
-          ref: ${{ github.event.pull_request.head.ref }}
-          git-commit-message: "${{ env.GIT_COMMIT_MESSAGE }} - Terraform Docs"

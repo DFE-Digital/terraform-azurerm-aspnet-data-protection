@@ -1,5 +1,5 @@
 resource "azurerm_role_assignment" "key_user_role" {
-  count = local.assign_rbac_role && local.container_identity_principal_id ? 1 : 0
+  count = local.assign_rbac_role && local.container_identity_principal_id != "" ? 1 : 0
 
   scope                = local.key_vault.id
   role_definition_name = "Key Vault Crypto Secret Encryption User"

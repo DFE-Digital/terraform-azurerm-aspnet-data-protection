@@ -1,9 +1,9 @@
-# <REPLACE WITH USEFUL TERRAFORM DESCRIPTION>
+# terraform-azurerm-aspnet-data-protection
 
-[![Terraform CI](./actions/workflows/continuous-integration-terraform.yml/badge.svg?branch=main)](./actions/workflows/continuous-integration-terraform.yml?branch=main)
-[![GitHub release](https://img.shields.io/github/release/<ORG>/<REPO>.svg)](./releases)
+[![Terraform CI](https://github.com/DFE-Digital/terraform-azurerm-aspnet-data-protection/actions/workflows/continuous-integration-terraform.yml/badge.svg?branch=main)](https://github.com/DFE-Digital/terraform-azurerm-aspnet-data-protection/actions/workflows/continuous-integration-terraform.yml?branch=main)
+[![GitHub release](https://img.shields.io/github/release/DFE-Digital/terraform-azurerm-aspnet-data-protection)](https://github.com/DFE-Digital/terraform-azurerm-aspnet-data-protection/releases)
 
-This <module/project> creates and manages <REPLACE WITH MAIN RESOURCE NAMES/URLS>.
+This module creates and manages an a cryptographic Key Vault Key deployed into a Key Vault. The Key can then be used by ASP.NET for encrypting/decrypting data protection keys at rest
 
 ## Usage
 

@@ -5,4 +5,5 @@ resource "azurerm_role_assignment" "key_user_role" {
   role_definition_name = "Key Vault Crypto Service Encryption User"
   principal_id         = local.container_identity_principal_id
   description          = "Allow Azure Container Apps to use the Keys defined inside Key Vault"
+  principal_type       = "ServicePrincipal"
 }

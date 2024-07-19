@@ -53,3 +53,21 @@ variable "data_protection_vnet_name" {
   type        = string
   default     = ""
 }
+
+variable "data_protection_enable_diagnostic_setting" {
+  description = "Turn on Audit Logs for Key Vault"
+  type        = bool
+  default     = true
+}
+
+variable "data_protection_enable_log_analytics_workspace" {
+  description = "When enabled, creates a Log Analyics Workspace, if one hasn't been specified for `data_protection_diagnostic_log_analytics_workspace_id`"
+  type        = bool
+  default     = false
+}
+
+variable "data_protection_diagnostic_log_analytics_workspace_id" {
+  description = "Specify a Log Analytics Workspace ID to send Diagnostic information to"
+  type        = string
+  default     = ""
+}

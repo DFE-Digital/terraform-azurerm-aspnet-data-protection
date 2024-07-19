@@ -71,3 +71,9 @@ variable "data_protection_diagnostic_log_analytics_workspace_id" {
   type        = string
   default     = ""
 }
+
+variable "data_protection_key_expiry_years" {
+  description = "Number of years from now when the Key Vault Key should be considered expired"
+  type        = number
+  default     = 1
+}

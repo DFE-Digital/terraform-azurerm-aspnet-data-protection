@@ -9,6 +9,9 @@ locals {
   resource_group_name             = var.data_protection_resource_group_name
   vnet_name                       = var.data_protection_vnet_name == "" ? "${local.resource_prefix}default" : var.data_protection_vnet_name
   azure_location                  = var.data_protection_azure_location
+  key_expiry_years                = var.data_protection_key_expiry_years
+  timestamp_parts                 = regex("^(?P<year>\\d+)(?P<remainder>-.*)$", timestamp())
+  year_from_now                   = format("%d%s", local.timestamp_parts.year + local.key_expiry_years, local.timestamp_parts.remainder)
   tags                            = var.data_protection_tags
   enable_diagnostic_setting       = var.data_protection_enable_diagnostic_setting
   enable_log_analytics_workspace  = var.data_protection_diagnostic_log_analytics_workspace_id == "" ? var.data_protection_enable_log_analytics_workspace : false

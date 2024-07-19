@@ -48,6 +48,8 @@ module "data_protection" {
 |------|------|
 | [azurerm_key_vault.data_protection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault) | resource |
 | [azurerm_key_vault_key.data_protection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_key) | resource |
+| [azurerm_log_analytics_workspace.key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) | resource |
+| [azurerm_monitor_diagnostic_setting.dpkv](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting) | resource |
 | [azurerm_private_dns_a_record.keyvault_dns](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_a_record) | resource |
 | [azurerm_private_dns_zone.keyvault_dns](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone) | resource |
 | [azurerm_private_dns_zone_virtual_network_link.key_vault_private_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link) | resource |
@@ -64,6 +66,9 @@ module "data_protection" {
 |------|-------------|------|---------|:--------:|
 | <a name="input_data_protection_azure_location"></a> [data\_protection\_azure\_location](#input\_data\_protection\_azure\_location) | Azure Region to deploy resources into | `string` | n/a | yes |
 | <a name="input_data_protection_container_identity_principal_id"></a> [data\_protection\_container\_identity\_principal\_id](#input\_data\_protection\_container\_identity\_principal\_id) | The Principal ID of an Identity attached to the Container App | `string` | `""` | no |
+| <a name="input_data_protection_diagnostic_log_analytics_workspace_id"></a> [data\_protection\_diagnostic\_log\_analytics\_workspace\_id](#input\_data\_protection\_diagnostic\_log\_analytics\_workspace\_id) | Specify a Log Analytics Workspace ID to send Diagnostic information to | `string` | `""` | no |
+| <a name="input_data_protection_enable_diagnostic_setting"></a> [data\_protection\_enable\_diagnostic\_setting](#input\_data\_protection\_enable\_diagnostic\_setting) | Turn on Audit Logs for Key Vault | `bool` | `true` | no |
+| <a name="input_data_protection_enable_log_analytics_workspace"></a> [data\_protection\_enable\_log\_analytics\_workspace](#input\_data\_protection\_enable\_log\_analytics\_workspace) | When enabled, creates a Log Analyics Workspace, if one hasn't been specified for `data_protection_diagnostic_log_analytics_workspace_id` | `bool` | `false` | no |
 | <a name="input_data_protection_existing_key_vault"></a> [data\_protection\_existing\_key\_vault](#input\_data\_protection\_existing\_key\_vault) | Conditionally launch resources into an existing Key Vault. Specifying this will NOT create a Key Vault. | `string` | `""` | no |
 | <a name="input_data_protection_key_vault_access_ipv4"></a> [data\_protection\_key\_vault\_access\_ipv4](#input\_data\_protection\_key\_vault\_access\_ipv4) | List of IPv4 Addresses that are permitted to access the Data Protection Key Vault | `list(string)` | `[]` | no |
 | <a name="input_data_protection_key_vault_assign_role"></a> [data\_protection\_key\_vault\_assign\_role](#input\_data\_protection\_key\_vault\_assign\_role) | Assign the Key Vault Key role to an Identity? | `bool` | `true` | no |

@@ -8,4 +8,9 @@ resource "azurerm_monitor_diagnostic_setting" "dpkv" {
   enabled_log {
     category = "AuditEvent"
   }
+
+  metric {
+    category = "AllMetrics"
+    enabled  = false
+  }
 }

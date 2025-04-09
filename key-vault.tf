@@ -44,5 +44,9 @@ resource "azurerm_key_vault_key" "data_protection" {
     notify_before_expiry = "P29D"
   }
 
-  expiration_date = local.year_from_now
+  expiration_date = local.key_expiration_date
+
+  # lifecycle {
+  #   ignore_changes = [expiration_date]
+  # }
 }

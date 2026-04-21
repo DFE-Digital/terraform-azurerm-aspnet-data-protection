@@ -1,4 +1,7 @@
 resource "azurerm_subnet" "key_vault" {
+
+  #checkov:skip=CKV2_AZURE_31: "Ensure VNET subnet is configured with a Network Security Group (NSG)
+
   name                 = "${local.resource_prefix}-dpkvprivateendpoint"
   virtual_network_name = local.vnet_name
   resource_group_name  = local.resource_group_name

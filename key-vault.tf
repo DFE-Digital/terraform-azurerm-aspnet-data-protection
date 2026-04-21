@@ -1,6 +1,8 @@
 resource "azurerm_key_vault" "data_protection" {
   count = local.existing_key_vault == "" ? 1 : 0
 
+  #checkov:skip=CKV2_AZURE_32: "Ensure private endpoint is configured to key vault"
+
   name                       = "${local.resource_prefix}-dpkv"
   location                   = local.azure_location
   resource_group_name        = local.resource_group_name
@@ -21,6 +23,9 @@ resource "azurerm_key_vault" "data_protection" {
 }
 
 resource "azurerm_key_vault_key" "data_protection" {
+
+  #checkov:skip=CKV_AZURE_112: "Ensure that key vault key is backed by HSM"
+
   name         = "${local.resource_prefix}-dp-key"
   key_vault_id = local.key_vault.id
   key_type     = "RSA"

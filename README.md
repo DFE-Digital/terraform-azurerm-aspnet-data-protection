@@ -32,7 +32,7 @@ module "data_protection" {
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.9 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.0 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.13.0 |
@@ -40,14 +40,14 @@ module "data_protection" {
 ## Providers
 
 | Name | Version |
-|------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.0 |
-| <a name="provider_time"></a> [time](#provider\_time) | ~> 0.13.0 |
+| ---- | ------- |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.72.0 |
+| <a name="provider_time"></a> [time](#provider\_time) | 0.13.1 |
 
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [azurerm_key_vault.data_protection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault) | resource |
 | [azurerm_key_vault_key.data_protection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_key) | resource |
 | [azurerm_log_analytics_workspace.key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) | resource |
@@ -66,7 +66,7 @@ module "data_protection" {
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_data_protection_azure_location"></a> [data\_protection\_azure\_location](#input\_data\_protection\_azure\_location) | Azure Region to deploy resources into | `string` | n/a | yes |
 | <a name="input_data_protection_container_identity_principal_id"></a> [data\_protection\_container\_identity\_principal\_id](#input\_data\_protection\_container\_identity\_principal\_id) | The Principal ID of an Identity attached to the Container App | `string` | `""` | no |
 | <a name="input_data_protection_diagnostic_log_analytics_workspace_id"></a> [data\_protection\_diagnostic\_log\_analytics\_workspace\_id](#input\_data\_protection\_diagnostic\_log\_analytics\_workspace\_id) | Specify a Log Analytics Workspace ID to send Diagnostic information to | `string` | `""` | no |
@@ -85,7 +85,7 @@ module "data_protection" {
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_key_vault"></a> [key\_vault](#output\_key\_vault) | n/a |
 | <a name="output_key_vault_secret_key"></a> [key\_vault\_secret\_key](#output\_key\_vault\_secret\_key) | n/a |
 <!-- END_TF_DOCS -->

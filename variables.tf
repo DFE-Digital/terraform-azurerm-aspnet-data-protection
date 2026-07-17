@@ -77,3 +77,21 @@ variable "data_protection_key_expiry_years" {
   type        = number
   default     = 1
 }
+
+variable "enable_storage" {
+  description = "Create a storage account and container to store key rings created by ASP.net"
+  type        = bool
+  default     = false
+}
+
+variable "storage_account_vnet_subnet_ids_allow_list" {
+  description = "List of VNET subnet ids allowed to access the storage account"
+  type        = list(string)
+  default     = []
+}
+
+variable "storage_account_ipv4_allow_list" {
+  description = "List of IPv4 addresses allowed to access the storage account"
+  type        = list(string)
+  default     = []
+}

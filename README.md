@@ -57,6 +57,9 @@ module "data_protection" {
 | [azurerm_private_dns_zone_virtual_network_link.key_vault_private_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_endpoint.key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_endpoint) | resource |
 | [azurerm_role_assignment.key_user_role](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_storage_account.data_protection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account) | resource |
+| [azurerm_storage_account_network_rules.data_protection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules) | resource |
+| [azurerm_storage_container.data_protection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container) | resource |
 | [azurerm_subnet.key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
 | [time_static.key_expiration_date](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/static) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
@@ -81,6 +84,9 @@ module "data_protection" {
 | <a name="input_data_protection_resource_prefix"></a> [data\_protection\_resource\_prefix](#input\_data\_protection\_resource\_prefix) | Prefix to add to all deployed resources | `string` | `""` | no |
 | <a name="input_data_protection_tags"></a> [data\_protection\_tags](#input\_data\_protection\_tags) | Tags to be applied to all resources | `map(string)` | n/a | yes |
 | <a name="input_data_protection_vnet_name"></a> [data\_protection\_vnet\_name](#input\_data\_protection\_vnet\_name) | Name of an existing Virtual Network to deploy the Key Vault Private Endpoint subnet into. Will default to: `[$resource_prefix]default` | `string` | `""` | no |
+| <a name="input_enable_storage"></a> [enable\_storage](#input\_enable\_storage) | Create a storage account and container to store key rings created by ASP.net | `bool` | `false` | no |
+| <a name="input_storage_account_ipv4_allow_list"></a> [storage\_account\_ipv4\_allow\_list](#input\_storage\_account\_ipv4\_allow\_list) | List of IPv4 addresses allowed to access the storage account | `list(string)` | `[]` | no |
+| <a name="input_storage_account_vnet_subnet_ids_allow_list"></a> [storage\_account\_vnet\_subnet\_ids\_allow\_list](#input\_storage\_account\_vnet\_subnet\_ids\_allow\_list) | List of VNET subnet ids allowed to access the storage account | `list(string)` | `[]` | no |
 
 ## Outputs
 

@@ -17,6 +17,7 @@ locals {
   tags                                       = var.data_protection_tags
   enable_diagnostic_setting                  = var.data_protection_enable_diagnostic_setting
   enable_log_analytics_workspace             = var.data_protection_diagnostic_log_analytics_workspace_id == "" ? var.data_protection_enable_log_analytics_workspace : false
+  enable_shared_access_key                   = var.enable_shared_access_key
   diagnostic_log_analytics_workspace_id = var.data_protection_diagnostic_log_analytics_workspace_id != "" ? var.data_protection_diagnostic_log_analytics_workspace_id : (
     local.enable_log_analytics_workspace ? azurerm_log_analytics_workspace.key_vault[0].id : null
   )

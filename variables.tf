@@ -84,6 +84,12 @@ variable "enable_storage" {
   default     = false
 }
 
+variable "enable_shared_access_key" {
+  description = "Enable shared access key creation for development."
+  type        = bool
+  default     = false
+}
+
 variable "storage_account_vnet_subnet_ids_allow_list" {
   description = "List of VNET subnet ids allowed to access the storage account"
   type        = list(string)

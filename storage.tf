@@ -9,7 +9,7 @@ resource "azurerm_storage_account" "data_protection" {
   min_tls_version                  = "TLS1_2"
   https_traffic_only_enabled       = true
   public_network_access_enabled    = true
-  shared_access_key_enabled        = false
+  shared_access_key_enabled        = local.enable_shared_access_key
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
 

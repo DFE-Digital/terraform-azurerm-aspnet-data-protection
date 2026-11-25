@@ -84,6 +84,7 @@ module "data_protection" {
 | <a name="input_data_protection_resource_prefix"></a> [data\_protection\_resource\_prefix](#input\_data\_protection\_resource\_prefix) | Prefix to add to all deployed resources | `string` | `""` | no |
 | <a name="input_data_protection_tags"></a> [data\_protection\_tags](#input\_data\_protection\_tags) | Tags to be applied to all resources | `map(string)` | n/a | yes |
 | <a name="input_data_protection_vnet_name"></a> [data\_protection\_vnet\_name](#input\_data\_protection\_vnet\_name) | Name of an existing Virtual Network to deploy the Key Vault Private Endpoint subnet into. Will default to: `[$resource_prefix]default` | `string` | `""` | no |
+| <a name="input_enable_shared_access_key"></a> [enable\_shared\_access\_key](#input\_enable\_shared\_access\_key) | Enable shared access key creation for development. | `bool` | `false` | no |
 | <a name="input_enable_storage"></a> [enable\_storage](#input\_enable\_storage) | Create a storage account and container to store key rings created by ASP.net | `bool` | `false` | no |
 | <a name="input_storage_account_ipv4_allow_list"></a> [storage\_account\_ipv4\_allow\_list](#input\_storage\_account\_ipv4\_allow\_list) | List of IPv4 addresses allowed to access the storage account | `list(string)` | `[]` | no |
 | <a name="input_storage_account_vnet_subnet_ids_allow_list"></a> [storage\_account\_vnet\_subnet\_ids\_allow\_list](#input\_storage\_account\_vnet\_subnet\_ids\_allow\_list) | List of VNET subnet ids allowed to access the storage account | `list(string)` | `[]` | no |
